@@ -1,8 +1,9 @@
 <?php
+$koneksi = mysqli_connect("localhost", "root", "", "db_penjualan2");
 $host = "localhost";
 $username = "root"; // Default XAMPP adalah root
 $password = "";     // Default XAMPP adalah kosong
-$dbname = "db_penjualanadinda"; // SESUAIKAN dengan nama di phpMyAdmin nanti
+$dbname = "db_penjualan2"; // SESUAIKAN dengan nama di phpMyAdmin nanti
 
 // Gunakan cara penulisan simpel ini di baris 8:
 $conn = new mysqli($host, $username, $password, $dbname);
