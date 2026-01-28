@@ -101,17 +101,40 @@ padding: 20px;
 <div class="dropdown-content" id="profileMenu">
 <a href="dashboard.php?page=profile">My Profile</a>
 <a href="dashboard.php?page=logout">Logout</a>
+<a href="dashboard.php?page=tambahproduct.php" class="btn btn-success btn-sm">+ Tambah Produk</a>
 </div>
 </div>
 </div>
 <div class="content">
 <?php
-$page = $_GET['page'] ?? 'home';
-$file = "pages/$page.php";
-if (file_exists($file)) {
-include $file;
+// Contoh di dalam dashboard.php
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+
+    switch ($page) {
+        case 'product':
+            include "pages/product.php"; // Tambahkan nama folder 'pages/'
+            break;
+            
+        case 'tambahproduct.php': 
+            include "pages/tambahproduct.php"; // Arahkan ke folder pages
+            break;
+
+            case 'editproduct.php': 
+                include "pages/editproduct.php"; // Arahkan ke folder pages
+                break;
+
+                case 'hapusproduct.php': 
+                    include "pages/hapusproduct.php"; // Arahkan ke folder pages
+                    break;
+                    
+        default:
+            include "pages/product.php"; // Halaman awal dashboard
+            break;
+    }
 } else {
-echo "<h2>Welcome Dashboard</h2>";
+    // Tampilan default jika variabel 'page' tidak ada di URL
+    echo "<h3>Selamat Datang di Dashboard</h3>";
 }
 ?>
 </div>
